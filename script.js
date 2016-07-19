@@ -2,6 +2,12 @@ var obj={};
 var l=1;
 $(document).ready(function(){
     $(".abc").click(function(){
+    	var table = document.getElementById("myTable");
+    	for(var k=table.rows.length-1;k>0;k--)
+    	{
+    		table.deleteRow(k);
+    	}
+    	l=1;
     	var title=$(".textClass").val();
         // $.getJSON("http://www.omdbapi.com/?s="+a, function(result){
         //     $.each(result, function(i, field){
@@ -17,12 +23,13 @@ $(document).ready(function(){
         	dataType:'json',
         	success: function(jsonData)
         	{
-        			obj=JSON.stringify(jsonData);
-        			//console.log(obj);
-        			var json=$.parseJSON(obj);
-        			json=json.Search;
+        			// obj=JSON.stringify(jsonData);
+        			// //console.log(obj);
+        			// var json=$.parseJSON(obj);
+        			json=jsonData.Search;
             		$(json).each(function(i,val){
             		$.each(val,function(k,v){
+            			$(".table-Section").css('display','block');
             			if(l!=json.length)
             			{
 		            		var table = document.getElementById("myTable");

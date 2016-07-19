@@ -2,9 +2,9 @@
 	text-align: center;
 }
 
-
 .table-Section{
 	margin-top: 20px;
+	display: none;
 }
 table, td {
     border: 1px solid black;
